@@ -30,10 +30,23 @@ De certa forma o container lembra muito - _mas não é_ - uma maquina virtual. D
 
 Imagens podem se referir a praticamente qualquer tipo de container . Um exemplo disso é pensar o próprio sistema operacional Ubuntu, que possui [uma imagem oficial no Docker Hub](https://hub.docker.com/_/ubuntu).
 
-O [Docker Hub](https://hub.docker.com/) é o principal repositório de imagens Docker atualmente. Nele, possuímos o que é chamado de [Registro](https://docs.docker.com/registry/introduction/) (Registry)* , onde requisitamos essas imagens.
+O [Docker Hub](https://hub.docker.com/) é o principal repositório de imagens Docker atualmente. Nele, possuímos o que é chamado de [Registro](https://docs.docker.com/registry/introduction/) _(Registry)*_ , onde requisitamos essas imagens.
 
-> **O Registry** * é um sistema de armazenamento e entrega, no qual podemos ter um usuário com nossas próprias imagens. Algo que lembra muito o GitHub, já que podemos dar pull nessas imagens para uso posterior.
+> _**O Registry** * é um sistema de armazenamento e entrega, no qual podemos ter um usuário com nossas próprias imagens. Algo que lembra muito o GitHub, já que podemos dar pull nessas imagens para uso posterior_.
 
 ### Fluxo padrão
 
 Para explicar melhor a dinâmica entre containers e imagens, falaremos um pouco de como funciona o fluxo padrão do Docker :
+
+![image](docker-flow.png)
+
+Após isso, podemos dar push ou pull (como em um repositório do GitHub) em uma imagem no Registry *;
+* Você pode dar pull na sua própria imagem (caso tenha dado push nela) ou em outra a sua escolha, como foi o caso do hello-world ).
+O Registro mais comum é o Docker Hub , mas temos outros exemplos, como mostrado na imagem.
+Por último, rodamos a imagem em um container , utilizando o comando run , que veremos mais adiante *.
+* Após isso, temos que dizer pro container o que deve acontecer, se ele deve se manter ativo ou não, caso o contrário, o container é encerrado. O que faz parte de seu ciclo de vida.
+
+**`Dockerfile`** - Tudo começa aqui. Este arquivo possui as _instruções_* necessárias para que possamos gerar uma imagem;
+> _**Instruções** * : São as instruções de qual sistema operacional usar, tal como quais comandos devem ser executados quando a imagem for rodada em um container . Após isso, podemos dar push ou pull (como em um repositório do GitHub) em uma imagem no Registry. O Registro mais comum é o Docker Hub , mas temos outros exemplos, como mostrado na imagem._
+**`image`** - É a compilação que é gerada pelo dockerfile após o build. Essa imagem é carregada num registro na nuvem como o Docker Hub. O comando `run` faz com que essa imagem como S.O e todas as confit
+**`container`** - 
